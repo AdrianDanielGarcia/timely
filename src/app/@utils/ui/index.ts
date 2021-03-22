@@ -1,0 +1,1 @@
+import * from './color-generator';

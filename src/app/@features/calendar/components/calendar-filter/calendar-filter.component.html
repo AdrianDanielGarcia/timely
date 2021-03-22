@@ -1,0 +1,55 @@
+<label class="section-header"> Filters </label>
+<form [formGroup]="filterForm">
+  <label>When?</label>
+  <div class="radio-button" *ngFor="let option of timeBlocks">
+    <label
+      (click)="selectTimeBlock(option)"
+      [class.selected]="selectedTimeBlock === option.id"
+      >{{ option.title }}</label
+    >
+  </div>
+
+  <label>Date's Range</label>
+  <mat-form-field appearance="outline" class="date-range">
+    <mat-date-range-input
+      [rangePicker]="picker"
+    >
+      <input
+        matStartDate
+        matInput
+        placeholder="Start date"
+        #dateRangeStart
+        formControlName="startDate"
+      />
+      <input
+        matEndDate
+        matInput
+        placeholder="End date"
+        #dateRangeEnd
+        formControlName="endDate"
+      />
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker
+      #picker
+      disabled="false"
+    ></mat-date-range-picker>
+  </mat-form-field>
+
+  <label>Categories</label>
+  <ng-select
+    [items]="(categories$ | async)!"
+    bindLabel="title"
+    bindValue="id"
+    formControlName="categoryID"
+  >
+  </ng-select>
+  <label>Tags</label>
+  <ng-select
+    [items]="(tags$ | async)!"
+    bindLabel="title"
+    bindValue="id"
+    formControlName="tagID"
+  >
+  </ng-select>
+</form>

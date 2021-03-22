@@ -2,6 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
 
+## Dependencies
+* @ng-select/ng-select": "^6.1.0",
+* dayjs": "^1.10.4",
+* @angular/material": "^11.2.5",
+
+## General architecture
+
+![alt text](./architeture-diagram.pmg "Architecture diagram")
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

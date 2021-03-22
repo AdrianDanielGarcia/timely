@@ -1,0 +1,25 @@
+<div
+  *ngIf="imageStyle"
+  [ngStyle]="imageStyle"
+  class="image"
+></div>
+<div class="info">
+  <div class="start-date">
+    <div class="month">{{ startMonthName}}</div>
+    <div class="day">{{ startDay }} </div>
+    <div class="day-name">{{ startDayOfWeek }}</div>
+  </div>
+  <div class="body">
+    <div class="title">
+      {{eventItem?.title}}
+    </div>
+
+    <div class="dates-and-times">
+      begin: {{dateAndTimes.startDateTime}}<br>
+      end: {{dateAndTimes.endDateTime}}
+    </div>
+  </div>
+</div>
+<div class="description">
+  {{eventItem?.description_short}}
+</div>

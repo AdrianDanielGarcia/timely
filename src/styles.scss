@@ -1,1 +1,109 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$timely-primary: mat-palette($mat-orange, 900);
+$timely-accent: mat-palette($mat-orange, 900, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$timely-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$timely-theme: mat-light-theme((
+  color: (
+    primary: $timely-primary,
+    accent: $timely-accent,
+    warn: $timely-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($timely-theme);
+
 /* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+
+html {
+  --scrollbarBG: #e6e6e6;
+  --thumbBG: #bdbdbd;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+*::-webkit-scrollbar {
+  width: 1rem;
+}
+*::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG) ;
+  border-radius: 20px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Montserrat, "Helvetica Neue", sans-serif; }
+
+.mat-form-field-wrapper, .mat-form-field-appearance-outline .mat-form-field-flex {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0.5rem 0.5rem;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-start, .mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border: 1px solid #ccc !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border-right-style: none !important;
+  padding-left: 0.5rem;
+}
+
+.mat-form-field-infix {
+  border-top-width: 0 !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-left-style: none !important;
+}
+
+.mat-input-element:disabled {
+  color: #444444;
+}
+
+.mat-date-range-input-start-wrapper {
+  width: 90px !important;
+}
+
+.mat-date-range-input-end-wrapper {
+  transform: translateY(-1px);
+}
+.mat-input-element:disabled, .mat-form-field {
+  font-family: Montserrat, sans-serif;
+}

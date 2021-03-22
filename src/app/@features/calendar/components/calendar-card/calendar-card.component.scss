@@ -1,0 +1,100 @@
+// TODO: move color, typography, shadows, etc to scss variables and mixins
+// TODO: analize mobile edge cases
+
+:host {
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #c9c9c9;
+
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+
+  @media (min-width: 400px) {
+    max-width: 400px;
+  }
+
+  width: fit-content;
+  height: fit-content;
+}
+
+.image {
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  // 16:9 ratio
+  padding-bottom: 75.5%;
+}
+
+.info {
+  margin: 1.5rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  height: 86px;
+
+  .start-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 1rem;
+    text-transform: uppercase;
+
+    background-color: rgb(224, 48, 17); // rgb(110, 43, 150); //  rgb(236, 41, 41);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+
+    flex: 0 0 3rem;
+
+    .day {
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+
+    .month, .day-name {
+      font-weight: 600;
+    }
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    .title {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+      font-weight:600;
+      text-transform: none;
+      color: #444;
+
+      @media (max-width: 430px) {
+        font-size: 1.2rem;
+        line-height: 1.3rem;
+      }
+    }
+
+    .dates-and-times {
+      color: #666;
+      font-size: 0.8rem;
+      line-height: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      margin: 0.5rem 0;
+
+    }
+
+  }
+}
+
+.description {
+  padding: 0 1rem 1rem 1rem;
+  font-size: 1rem;
+  font-family: 'open sans', sans-serif;
+}

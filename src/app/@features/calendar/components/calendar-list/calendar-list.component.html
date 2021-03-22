@@ -1,0 +1,66 @@
+<!-- TODO: In iPhone 5/SE doesn´t show the tags (out of viewport) -->
+<!-- TODO: in mobile move the header to the bottom and redesign the icon layout-->
+<!-- TODO: add animations to filter nav-bar transitions -->
+<ng-container *ngIf="
+  (calendarList$ | async) as asyncData
+">
+  <header class="header">
+    <div
+      class="nav-icon"
+      [class.opened]="navbarOpened"
+      (click)="openCloseNavbar()"
+    >
+      <span></span>
+    </div>
+    <div class="title">Events</div>
+    <div class="views">
+      <img
+        src="/assets/module_view.svg"
+        title="Card view"
+        (click)="selectView('card-view')"
+      >
+      <img
+        src="/assets/list_view.svg"
+        title="List view"
+        (click)="selectView('list-view')"
+      >
+    </div>
+
+  </header>
+  <div class="work-area">
+
+    <!-- nav bar -->
+    <div
+      class="nav-bar"
+      *ngIf="navbarOpened"
+    >
+      <app-calendar-filter></app-calendar-filter>
+    </div>
+
+    <div class="work-container">
+      <div class="cards-container">
+        <!-- <ng-container *ngIf="selectedView === 'card-view'"> -->
+          <app-calendar-card
+            *ngFor="let item of asyncData.eventItems; trackBy: trackByItems"
+            [eventItem]="item"
+          ></app-calendar-card>
+        <!-- </ng-container> -->
+        <!-- <ng-container *ngIf="selectedView === 'list-view'"> -->
+          <!-- TODO: implement list view -->
+        <!-- </ng-container> -->
+
+      </div>
+      <footer
+        *ngIf="asyncData.hasNext"
+        class="footer"
+      >
+        <button
+          class="button"
+          (click)="showMoreEvents()"
+        >
+          Show more...
+        </button>
+      </footer>
+    </div>
+  </div>
+</ng-container>

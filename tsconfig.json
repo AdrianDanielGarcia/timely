@@ -2,7 +2,15 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src",
+    "paths": {
+      "@core/*": ["app/@core/*"],
+      "@features/*": ["app/@features/*"],
+      "@models/*": ["app/@models/*"],
+      "@shared/*": ["app/@shared/*"],
+      "@utils/*": ["app/@utils/*"],
+      "@app/*": ["app/*"],
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -14,10 +22,11 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
     "target": "es2015",
     "module": "es2020",
     "lib": [
-      "es2018",
+      "es2019",
       "dom"
     ]
   },
@@ -25,6 +34,6 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": false
   }
 }
