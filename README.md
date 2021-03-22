@@ -9,7 +9,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## General architecture
 
-![alt text](./architeture-diagram.pmg "Architecture diagram")
+![alt text](architeture-diagram.pmg "Architecture diagram")
 
 ## Development server
 
